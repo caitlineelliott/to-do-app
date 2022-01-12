@@ -1,0 +1,141 @@
+body {
+  background: #003049;
+  font-family: 'helvetica';
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  background-color: #b9d3c3;
+  border-radius: 5px;
+  width: 35vw;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #003049;
+}
+
+
+/* Filter Butons */
+#btnContainer {
+  display: flex;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.btn {
+  background: #003049;
+  border: 2px solid #003049;
+  color: #fff;
+  padding: 10px 15px;
+  width: 40%;
+}
+
+.btn.toggle-btn[aria-pressed="true"] {
+  background: #4d6e80;
+  border: 2px solid #003049;
+}
+
+/* To Do List Styles */
+li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 10px -40px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #94a99c;
+  font-size: 0.9em;
+  color: #003049;
+}
+
+/* Custom Emoji Checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+.check + label:after {
+  content: "👍";
+  opacity: 0.4;
+  font-size: 1.2em;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.check:checked + label:after {
+  content: "👍";
+  opacity: 1;
+}
+
+/* Task Name Styling */
+#task {
+  padding-left: 5px;
+  width: 90%;
+}
+
+/* Task Priority Labels */
+.level-label {
+  font-size: 0.5em;
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+  letter-spacing: 0.2em;
+}
+
+#high {
+  background-color: #bc9487;
+  color: #3c1508;
+}
+
+#medium {
+  background-color: #fbbf80;
+  color: #7c4000;
+}
+
+#low {
+  background-color: #fedfa4;
+  color: #7e6025;
+}
+
+/* Delete Task Styles */
+#delete {
+  border: none;
+  background: transparent;
+}
+
+/* Check off task & delete task hover styles */
+#check:hover,
+#delete:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* Input & Priority Styles */
+input[type="text"], select {
+  display: block;
+  width: 100%;
+  background: #003049;
+  color: white;
+  border: none;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  width: 32.75vw;
+}
+
+/* Add Task Btn Styles */
+button[type="submit"] {
+  background: #003049;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  color: white;
+}
