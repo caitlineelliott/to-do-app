@@ -6,13 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// Default taks list
-const ListArr = [
-  { id: 'todo-01', name: 'call mom', completed: false, priority: 'high' },
-  { id: 'todo-02', name: 'finish studying', completed: false, priority: 'medium' },
-  { id: 'todo-03', name: 'yoga', completed: false, priority: 'low' }
-]
-
 // Creates ToDo items
 function ToDo(props) {
 
@@ -61,18 +54,19 @@ function FilterButton(props) {
 }
 
 // Creates task list
-function TaskList({ tasks, onDelete, onCompleted }) {
+//{ tasks, onDelete, onCompleted }
+function TaskList(props) {
   return (
     <div>
       <ul>
-        {tasks.length > 0 ? tasks.map(task => (
+        {props.tasks.length > 0 ? props.tasks.map(task => (
           <ToDo
             id={task.id}
             name={task.name}
             completed={task.completed}
             key={task.id}
-            toggleTaskCompleted={onCompleted}
-            deleteTask={onDelete}
+            toggleTaskCompleted={props.onCompleted}
+            deleteTask={props.onDelete}
             priority={task.priority}
           />
         )) : <span>No Tasks</span>}
@@ -124,7 +118,13 @@ function Form(props) {
 
 // Creates whole app
 function App(props) {
-  const [tasks, setTasks] = useState(props.tasks);
+  const ListArr = [
+    { id: 'todo-01', name: 'call mom', completed: false, priority: 'high' },
+    { id: 'todo-02', name: 'finish studying', completed: false, priority: 'medium' },
+    { id: 'todo-03', name: 'yoga', completed: false, priority: 'low' }
+  ]
+
+  const [tasks, setTasks] = useState(ListArr);
   const [filter, setFilter] = useState('All');
 
   function handleTaskFilter(id) {
@@ -135,7 +135,6 @@ function App(props) {
       return task;
     })
     setTasks(updatedTasks);
-    console.log(updatedTasks);
   }
 
   function handleTaskAdd(name, priority) {
@@ -167,14 +166,14 @@ function App(props) {
           onFilter={setFilter}
         />
       </div>
-      <TaskList tasks={tasks.filter(filterMap[filter])} onDelete={handleTaskDelete} onCompleted={handleTaskFilter} />
+      <TaskList tasks={tasks.filter(filterMap[([filter])])} onDelete={handleTaskDelete} onCompleted={handleTaskFilter} />
       <Form addTask={handleTaskAdd} />
     </div>
   )
 };
 
 ReactDOM.render(
-  <App tasks={ListArr} />,
+  <App />,
   document.getElementById('root')
 );
 
