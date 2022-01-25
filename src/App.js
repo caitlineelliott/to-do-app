@@ -57,20 +57,22 @@ function FilterButton(props) {
 //{ tasks, onDelete, onCompleted }
 function TaskList(props) {
   return (
-    <div>
-      <ul>
-        {props.tasks.length > 0 ? props.tasks.map(task => (
-          <ToDo
-            id={task.id}
-            name={task.name}
-            completed={task.completed}
-            key={task.id}
-            toggleTaskCompleted={props.onCompleted}
-            deleteTask={props.onDelete}
-            priority={task.priority}
-          />
-        )) : <span>No Tasks</span>}
-      </ul>
+    <div id="task-list">
+      {props.tasks.length > 0 ?
+        <ul>
+          {props.tasks.map(task => (
+            <ToDo
+              id={task.id}
+              name={task.name}
+              completed={task.completed}
+              key={task.id}
+              toggleTaskCompleted={props.onCompleted}
+              deleteTask={props.onDelete}
+              priority={task.priority}
+            />
+          ))}
+        </ul> : <div id="no-tasks">No Tasks</div>}
+
     </div>
   )
 }
@@ -98,7 +100,7 @@ function Form(props) {
   }
 
   return (
-    <div>
+    <div id="form-container">
       <form onSubmit={handleSubmit}>
         <label>To Do Item:
           <input type="text" value={name} onChange={handleChange} />
@@ -148,7 +150,7 @@ function App(props) {
 
   return (
     <div id="container">
-      <h1>To Do List</h1>
+      <h1>Ascend</h1>
       <div id="btnContainer">
         <FilterButton
           name='All'

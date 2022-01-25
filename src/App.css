@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
-  background: #003049;
-  font-family: 'helvetica';
+  background: #a44a3f;
+  font-family: 'Roboto';
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -10,7 +13,7 @@ body {
 }
 
 #container {
-  background-color: #b9d3c3;
+  background-color: #f6f4d2;
   border-radius: 5px;
   width: 35vw;
   padding: 20px;
@@ -18,9 +21,12 @@ body {
 
 h1 {
   text-align: center;
-  color: #003049;
+  color: #a44a3f;
+  font-family: 'Poiret One';
+  text-transform: uppercase;
+  font-size: 2.5em;
+  font-weight: normal;
 }
-
 
 /* Filter Butons */
 #btnContainer {
@@ -30,16 +36,17 @@ h1 {
 }
 
 .btn {
-  background: #003049;
-  border: 2px solid #003049;
+  background: #a44a3f;
+  border: 2px solid #a44a3f;
   color: #fff;
   padding: 10px 15px;
   width: 40%;
+  font-family: 'Roboto';
 }
 
 .btn.toggle-btn[aria-pressed="true"] {
-  background: #4d6e80;
-  border: 2px solid #003049;
+  background: #f19c79;
+  border: 2px solid #a44a3f;
 }
 
 /* To Do List Styles */
@@ -49,9 +56,20 @@ li {
   margin: 10px 0 10px -40px;
   padding: 5px;
   border-radius: 5px;
-  background-color: #94a99c;
+  background-color: #b5bd8f;
   font-size: 0.9em;
-  color: #003049;
+  color: #a44a3f;
+}
+
+#no-tasks {
+  color: #a44a3f;
+  font-family: 'Poiret One';
+  text-transform: uppercase;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55vh;
 }
 
 /* Custom Emoji Checkbox */
@@ -60,15 +78,14 @@ input[type="checkbox"] {
 }
 
 .check + label:after {
-  content: "👍";
-  opacity: 0.4;
-  font-size: 1.2em;
+  content: "☐";
+  font-size: 1.5em;
   margin-left: 5px;
   cursor: pointer;
 }
 
 .check:checked + label:after {
-  content: "👍";
+  content: "☑";
   opacity: 1;
 }
 
@@ -89,18 +106,18 @@ input[type="checkbox"] {
 }
 
 #high {
-  background-color: #bc9487;
-  color: #3c1508;
+  background-color: #a44a3f;
+  color: #f6f4d2;
 }
 
 #medium {
-  background-color: #fbbf80;
-  color: #7c4000;
+  background-color: #f19c79;
+  color: #f6f4d2;
 }
 
 #low {
-  background-color: #fedfa4;
-  color: #7e6025;
+  color: #b6c084;
+  background-color: #f6f4d2;
 }
 
 /* Delete Task Styles */
@@ -120,22 +137,168 @@ input[type="checkbox"] {
 input[type="text"], select {
   display: block;
   width: 100%;
-  background: #003049;
+  background: #a44a3f;
   color: white;
   border: none;
   padding: 15px;
   margin-bottom: 15px;
+  font-family: 'Roboto';
 }
 
 input[type="text"] {
-  width: 32.75vw;
+  width: 95%;
 }
 
 /* Add Task Btn Styles */
 button[type="submit"] {
-  background: #003049;
+  background: #a44a3f;
   border: none;
   width: 100%;
   padding: 15px;
   color: white;
+  font-family: 'Roboto';
+}
+
+
+/* Tablet */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+  #container {
+    width: 75vw;
+    height: 80vh;
+    padding: 0;
+  }
+
+  li {
+    font-size: 1.25em;
+    height: 5vh;
+  }
+
+  .check + label:after {
+    margin-right: 10px;
+  }
+
+  .level-label {
+    font-size: 0.75em;
+    padding: 10px;
+  }
+
+  h1 {
+    height: 10%;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #btnContainer {
+    height: 10%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .btn {
+    width: 33%;
+  }
+
+  #task-list {
+    height: 35%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  #form-container {
+    position: relative;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #form-container {
+    height: 45%;
+  }
+
+  form {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #d4e09b;
+    border-radius: 0 0 5px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 699px) {
+  #container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    font-size: 1em;
+    height: 5vh;
+    border-bottom: 1px solid #a44a3f;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .check + label:after {
+    margin-right: 10px;
+  }
+
+  .level-label {
+    font-size: 0.75em;
+    padding: 10px;
+  }
+
+  h1 {
+    height: 10%;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #btnContainer {
+    height: 5%;
+    box-sizing: border-box;
+  }
+
+  .btn {
+    width: 40%;
+  }
+
+  #task-list {
+    height: 35%;
+    box-sizing: border-box;
+  }
+
+  #form-container {
+    position: relative;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  form {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #d4e09b;
+    border-radius: 0 0 5px;
+  }
+
+  input[type="text"] {
+    width: 91%;
+  }
 }
